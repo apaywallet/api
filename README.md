@@ -7,9 +7,7 @@
 
 Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多数的 Apay API 需采用 POST 方式发送请求，少量的服务类 API 使用 GET 方式获取数据。除 API 列举的请求方式外，其他方法都不被支持。
 
-## 3.接口说明 ##
-
-### 1.pay ###
+### 2.1.pay ###
 
 #### 请求参数 ####
 参数 | 类型 | 描述
@@ -21,3 +19,13 @@ orderAmount | Decimal | 数量
 merchantSign | String | 商家签名
 
 #### 返回值 ####
+
+## 3.H5-Bridge 调用 ##
+``` 
+	<script language="javascript" src="https://static.apay.im/dsbridge.js"></script>
+	var params = {
+		'merchantId':'123456',
+		...
+	}
+	dsBridge.call("pay.payAsyn",params);
+```
