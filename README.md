@@ -10,13 +10,13 @@ Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多�
 ### 2.1.pay ###
 
 #### 请求参数 ####
-参数 | 类型 | 描述
-- | - | -
-merchantId | String | 商户APPID
-merchantOrderCode| String | 商家订单号
-coinName | String | 币种
-orderAmount | Decimal | 数量
-merchantSign | String | 商家签名
+| 参数 | 类型 | 描述 |
+| - | - | - |
+| merchantId | String | 商户APPID |
+| merchantOrderCode| String | 商家订单号 |
+| coinName | String | 币种 |
+| orderAmount | Decimal | 数量 |
+| merchantSign | String | 商家签名 |
 
 #### 返回值 ####
 
