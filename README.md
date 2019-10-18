@@ -24,10 +24,10 @@ Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多�
 
 pay,coinpay,otcpay分别对应支付，币支持和OTC支付。例:
 ``` 
-	<script language="javascript" src="https://static.apay.im/dsbridge.js"></script>
+	<script language="javascript" src="./script/apaybridge.js"></script>
 	var params = {
 		'merchantId':'123456',
 		...
 	}
-	dsBridge.call("pay.payAsyn",params);
+	apayBridge.call("pay.payAsyn",params);
 ```
