@@ -31,3 +31,4 @@ pay,coinpay,otcpay分别对应支付，币支持和OTC支付。例:
 	}
 	apayBridge.call("pay.payAsyn",params);
 ```
+
