@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Apay支付</title>
+	<script src="script/crypto-js.min.js"></script>
+	</head>
+
+	<body>
+        <script>
+            // coinName 币种简称
+            // merchantId 商家appid
+            // merchantOrderCode 商家订单号
+            // orderAmount 订单金额
+			// merchantSign 商家端签名
+			
+			var merchantId = 'appid';
+			var appsecert = 'appsecret';
+			var merchantOrderCode = '商户自定义订单号';
+			var orderAmount = 100;
+			var coinName = 'USDT';
+			var merchantSign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256('coinName=' + coinName + ',merchantId='+ merchantId +',merchantOrderCode=' + merchantOrderCode + ',orderAmount=' + orderAmount, appsecert));
+
+			var params = {'coinName':coinName,'merchantId':merchantId,'merchantOrderCode':merchantOrderCode,'orderAmount':orderAmount,'merchantSign':merchantSign};
+
+			apayBridge.call("pay.payAsyn", params);
+
+        </script>
+	</body>
+</html>
