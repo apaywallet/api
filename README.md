@@ -46,7 +46,7 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 
 例如：body参数为 address = 0x123456789，orderId = ap201906250958001，那么根据key升序排列所得到的字符串为："address=0x1236547,orderId=ap201906250958001",对此字符串进行HMAC SHA256，然后Base64即可得到签名
 
-### 2.2.查询商家订单状态 ###
+### 2.2.查询商家订单状态 /v1.0/queryMerchantOrderStatus ###
 
 #### 请求参数 ####
 | 参数 | 类型 | 描述 |
