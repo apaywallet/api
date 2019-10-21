@@ -32,6 +32,18 @@ Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多�
 组合得到字符串，对得到的字符串进行HMAC 
 SHA256，然后Base64,得到签名。HMAC SHA256的key为Apay商家APP-SECRET。
 
+Java生成签名方法如下：
+
+```
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.HmacAlgorithms;
+import org.apache.commons.codec.digest.HmacUtils;
+
+ // bodyStr为按规则拼接好的明文字符串
+String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_256, appSecret)
+                .hmac(bodyStr);                
+```
+
 例如：body参数为 address = 0x123456789，orderId = ap201906250958001，那么根据key升序排列所得到的字符串为："address=0x1236547,orderId=ap201906250958001",对此字符串进行HMAC SHA256，然后Base64即可得到签名
 
 ### 2.2.查询商家订单状态 ###
