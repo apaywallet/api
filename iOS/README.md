@@ -30,11 +30,11 @@ URLTypes的schemes格式为apayxxx,其中xxx为平台获取到的appid
     payreq.orderAmount =self.textField.text;
     payreq.businessId = merchantId;
     if (payType == 0) {
-        payreq.payType = ApayTypeCustomSelect;
+        payreq.payType = ThirdPayTypePay;
     }else if (payType == 1) {
-        payreq.payType = ApayTypeTransfer;
+        payreq.payType = ThirdPayTypeCoinPay;
     }else if (payType == 2) {
-        payreq.payType = ApayTypeOTC;
+        payreq.payType = ThirdPayTypeOtcPay;
     }
     payreq.signSecret = @"6FE144D58964EB0D535B521A651AE19E";
     [ApayApi registerApayApp:@"123"];
