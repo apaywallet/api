@@ -59,11 +59,11 @@ NSString *merchantId = @"27dc6eaf-5bf5-4eb9-80f1-a564e20e9d10";
     payreq.orderAmount =self.textField.text;
     payreq.businessId = merchantId;
     if (payType == 0) {
-        payreq.payType = ApayTypeCustomSelect;
+        payreq.payType = ThirdPayTypePay;
     }else if (payType == 1) {
-        payreq.payType = ApayTypeTransfer;
+        payreq.payType = ThirdPayTypeCoinPay;
     }else if (payType == 2) {
-        payreq.payType = ApayTypeOTC;
+        payreq.payType = ThirdPayTypeOtcPay;
     }
     payreq.signSecret = @"6FE144D58964EB0D535B521A651AE19E";
     [ApayApi registerApayApp:@"123"];

@@ -14,12 +14,12 @@ enum  ApayErrCode {
     ApayErrCodeSentFail   = -1,   /**< 支付失败    */
 };
 
-typedef enum PayType {
-    ApayTypeCustomSelect           = 0,    /**< 选择页面    */
-    ApayTypeTransfer               = 1,    /**< 转账支付    */
-    ApayTypeOTC                    = 2,    /**< OTC支付    */
-} PayType;
-
+/// 选择页面
+extern NSString * const ThirdPayTypePay;
+/// 币支付
+extern NSString * const ThirdPayTypeCoinPay;
+/// otc支付
+extern NSString * const ThirdPayTypeOtcPay;
 
 #pragma mark - BaseReq
 /*! @brief 该类为Apay终端SDK所有请求类的基类
@@ -63,9 +63,9 @@ typedef enum PayType {
 /** 订单金额 */
 @property (nonatomic, copy) NSString *orderAmount;
 /** 商户id */
-@property (nonatomic, copy) NSString* businessId;
+@property (nonatomic, copy) NSString *businessId;
 /** 支付类型 */ 
-@property (nonatomic, assign) PayType payType;
+@property (nonatomic, copy) NSString *payType;
 /** 签名密钥, */
 @property (nonatomic,copy) NSString *signSecret;
 @end
