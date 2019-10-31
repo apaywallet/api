@@ -1,10 +1,8 @@
 # Android APP APAY 支付接口
 
-
-
 ## 1 介绍
 
-本 `jar` 包用于商家在 App 应用中集成 APAY 支付功能。暂时只支持 `AndroidX` 版本。
+本 `jar` 包用于商家在 `App` 应用中集成 `APAY` 支付功能。暂时只支持 `AndroidX` 版本。
 
 ## 2 如何使用
 
@@ -33,6 +31,8 @@ APayUtils.Companion.getInstance().goAPayment(this,"type","coinName","orderAmount
 ```kotlin
 APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","merchantId","merchantOrderCode","singnature")
 ```
+
+请求参数
 
 | 参数              | 类型     | 描述                                                         |
 | ----------------- | -------- | ------------------------------------------------------------ |
@@ -65,6 +65,8 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
         }
     }
 ```
+
+返回值
 
 | 字段名                | 类型 | 描述                                            |
 | --------------------- | ---- | ----------------------------------------------- |
