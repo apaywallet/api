@@ -15,15 +15,9 @@ URLTypes的schemes格式为apayxxx,其中xxx为平台获取到的appid
 ### 1.4.plist文件的白名单中添加schemes ###
 例如:
 ```
+	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>apay123</string>
-			</array>
-		</dict>
+		<string>apay</string>
 	</array>
 ```
 ### 1.5.工程中调用 ###
