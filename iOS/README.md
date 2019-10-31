@@ -29,7 +29,6 @@ URLTypes的schemes格式为apayxxx,其中xxx为平台获取到的appid
 ### 1.5.工程中调用 ###
 1. 首先导入#import "apay.framework/Headers/ApayApi.h"头文件
 2. 生成所需要的参数,coinName只有USDT,merchantOrderCode为商家订单号,后台提供;orderAmount为数量,businessId为商户APPID;signSecret为商家加密串;payType为跳转页面,具体看注释;signSecret为签名密钥,注意发起调用之前设置appId,[ApayApi registerApp:@"123"],示例如下所示,
-![](https://apw-static.oss-cn-beijing.aliyuncs.com/upload_file/OTHER/custom/4.jpg)
 ```
      PayReq *payreq = [[PayReq alloc]init];
     payreq.coinName = @"USDT";
@@ -53,6 +52,19 @@ URLTypes的schemes格式为apayxxx,其中xxx为平台获取到的appid
 
 1. appDelegate.m中的 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options方法添加处理回调,
 2. - (void)onApayResp:(ApayBaseResp*)resp为回调方法
+```
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [ApayApi handleOpenURL:url delegate:self];
+}
 
+- (void)onApayResp:(ApayBaseResp*)resp{
+    if(resp.errCode == ApaySuccess){
+        [[[UIAlertView alloc]initWithTitle:@"提示" message:resp.errStr delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil]show];
+    }
+    else if(resp.errCode == ApayErrCodeSentFail){
+        [[[UIAlertView alloc]initWithTitle:@"提示" message:resp.errStr delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil]show];
+    }
+}
+```
 
 
