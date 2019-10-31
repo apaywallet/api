@@ -1,4 +1,6 @@
-# Android APP APAY调用接口
+# Android APP APAY 支付接口
+
+
 
 ## 1 介绍
 
@@ -45,7 +47,7 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
 ### 2.3 支付回调
 
 ```java
-	  @Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
