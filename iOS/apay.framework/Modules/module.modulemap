@@ -1,0 +1,6 @@
+framework module apay {
+  umbrella header "apay.h"
+
+  export *
+  module * { export * }
+}
