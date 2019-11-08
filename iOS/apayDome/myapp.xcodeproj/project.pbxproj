@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B786B7B2375518100392124 /* apay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B786B7A2375518100392124 /* apay.framework */; };
 		6BBB5F2721425BED0023023A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2621425BED0023023A /* AppDelegate.m */; };
 		6BBB5F2A21425BED0023023A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2921425BED0023023A /* ViewController.m */; };
 		6BBB5F2D21425BED0023023A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2B21425BED0023023A /* Main.storyboard */; };
@@ -14,8 +15,6 @@
 		6BBB5F3221425BEE0023023A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BBB5F3021425BEE0023023A /* LaunchScreen.storyboard */; };
 		6BBB5F3521425BEE0023023A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F3421425BEE0023023A /* main.m */; };
 		6BF05404236927A300A9E690 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF05403236927A300A9E690 /* UIWindow+Extension.m */; };
-		6BF05449236AD14600A9E690 /* apay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF05447236AD11D00A9E690 /* apay.framework */; };
-		6BF0544A236AD14600A9E690 /* apay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF05447236AD11D00A9E690 /* apay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6BF0544A236AD14600A9E690 /* apay.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B786B7A2375518100392124 /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = apay.framework; sourceTree = "<group>"; };
 		6BBB5F2221425BED0023023A /* 调用DEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "调用DEMO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BBB5F2521425BED0023023A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6BBB5F2621425BED0023023A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,7 +45,6 @@
 		6BF05402236927A300A9E690 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		6BF05403236927A300A9E690 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		6BF05441236AD05D00A9E690 /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = apay.framework; path = ../apay.framework; sourceTree = "<group>"; };
-		6BF05447236AD11D00A9E690 /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = apay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BF05449236AD14600A9E690 /* apay.framework in Frameworks */,
+				6B786B7B2375518100392124 /* apay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +87,7 @@
 		6BBB5F2421425BED0023023A /* myapp */ = {
 			isa = PBXGroup;
 			children = (
-				6BF05447236AD11D00A9E690 /* apay.framework */,
+				6B786B7A2375518100392124 /* apay.framework */,
 				6BF05402236927A300A9E690 /* UIWindow+Extension.h */,
 				6BF05403236927A300A9E690 /* UIWindow+Extension.m */,
 				6BBB5F2521425BED0023023A /* AppDelegate.h */,
