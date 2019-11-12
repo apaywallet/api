@@ -96,3 +96,6 @@ pay,coinpay,otcpay分别对应支付，币支付和OTC支付。例:
 	}
 	apayBridge.call("pay.payAsyn",params);
 ```
+
+## 4.H5二维码 扫码支付 ##
+待完善...
