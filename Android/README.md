@@ -44,11 +44,15 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
 | merchantOrderCode | String   | 商家订单号                                                   |
 | singnature        | String   | 签名秘钥                                                     |
 
-`merchantId` 申请地址 ->  [商户后台](https://api.apay.im/) 
+`merchantId` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
 
 ### 2.3 支付回调
 
-最终订单状态以调用接口为准，前端回调只做参考
+***注意***：最终订单状态以调用接口为准，前端回调只做参考。
+
+#### [查看接口回调](https://github.com/apaywallet/api#22%E6%9F%A5%E8%AF%A2%E5%95%86%E5%AE%B6%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81-v10querymerchantorderstatus)
+
+#### Android 端回调
 
 ```java
     @Override
@@ -77,4 +81,3 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
 | payStatus             | Int  | 用于在 onActivityResult 中获取支付状态的 key 值 |
 | APayUtils.PAY_SUCCESS | Int  | 支付成功后返回的状态                            |
 | APayUtils.PAY_FAIL    | Int  | 支付失败或取消后返回的状态                      |
-
