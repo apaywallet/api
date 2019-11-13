@@ -23,13 +23,13 @@ implementation "androidx.core:core-ktx:1.1.0"
 `java` 发起方式
 
 ```java
-APayUtils.Companion.getInstance().goAPayment(this,"type","coinName","orderAmount","merchantId","merchantOrderCode","singnature");
+APayUtils.Companion.getInstance().goAPayment(this,"type","coinName","orderAmount","appid","merchantOrderCode","appSecret");
 ```
 
 `kotlin` 发起方式
 
 ```kotlin
-APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","merchantId","merchantOrderCode","singnature")
+APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","appid","merchantOrderCode","appSecret")
 ```
 
 请求参数
@@ -40,11 +40,11 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
 | type              | String   | pay(支付方式选择)、coinpay(币支付)、otcpay(OTC支付) 三种支付方式 |
 | coinName          | String   | 币种名称。例如：”BTC”                                        |
 | orderAmount       | String   | 购买数量                                                     |
-| merchantId        | String   | 商户 appid                                                   |
+| appId             | String   | 商户 appId (文档之前使用 merchantId )                        |
 | merchantOrderCode | String   | 商家订单号                                                   |
-| singnature        | String   | 签名秘钥                                                     |
+| appSecret         | String   | 商户 appSecret (文档之前使用 singnature )                    |
 
-`merchantId` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
+`appid` `appSecret` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
 
 ### 2.3 支付回调
 
