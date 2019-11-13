@@ -44,7 +44,7 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","a
 | merchantOrderCode | String   | 商家订单号                                                   |
 | appSecret         | String   | 商户 appSecret (文档之前使用 singnature )                    |
 
-`appid` `appSecret` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
+`appId` `appSecret` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
 
 ### 2.3 支付回调
 
