@@ -44,7 +44,11 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","m
 | merchantOrderCode | String   | 商家订单号                                                   |
 | singnature        | String   | 签名秘钥                                                     |
 
+`merchantId` 申请地址 ->  [商户后台](https://api.apay.im/) 
+
 ### 2.3 支付回调
+
+最终订单状态以调用接口为准，前端回调只做参考
 
 ```java
     @Override
