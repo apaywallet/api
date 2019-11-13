@@ -1,7 +1,7 @@
 # iOS APP Apay调用接口 #
 
 ## 1.概览 ##
-本文档只描述大概的使用详情,具体接入详情请查看附带的demo.
+本文档只描述大概的使用详情,具体接入详情请查看附带的demo.AppId和AppSecret请去https://api.apay.im 申请
 
 
 
