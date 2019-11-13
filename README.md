@@ -62,6 +62,26 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 | - | - | - |
 | orderStatus | Integer | 订单状态(1为已创建，2为确认中，3为已完成，4为失败) |
 
+### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收Apay支付成功后的回调，Apay向接收方发送参数如下:
+
+#### 请求参数 ####
+| 参数 | 类型 | 描述 |
+| - | - | - |
+| merchantOrderCode| String | 商家订单号 |
+| orderAmount | BigDecimal | 订单金额 |
+| coinName | String | 币种名称 |
+| billCode | String | 订单号(此订单号为Apay的订单号) |
+| merchantSign | String | 商家签名(签名生成规则同上) |
+
+#### 返回值说明:成功接收到Apay推送后，需给Apay以Json方式返回如下参数,Apay将code为200视为推送成功。
+``` 
+	{"code":200}
+```
+
+| 参数 | 类型 | 描述 |
+| - | - | - |
+| code | Integer | 返回码(200为成功，其他为失败) |
+
 ## 3.H5-Bridge 调用 ##
 
 pay,coinpay,otcpay分别对应支付，币支付和OTC支付。例:
@@ -76,3 +96,6 @@ pay,coinpay,otcpay分别对应支付，币支付和OTC支付。例:
 	}
 	apayBridge.call("pay.payAsyn",params);
 ```
+
+## 4.H5二维码 扫码支付 ##
+待完善...
