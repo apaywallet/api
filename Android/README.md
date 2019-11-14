@@ -18,6 +18,14 @@ implementation files('libs/apayutils.jar')
 implementation "androidx.core:core-ktx:1.1.0"
 ```
 
+请在项目的 ` build.gradle ` 文件中添加
+
+```groovy
+repositories {
+	google()
+}
+```
+
 ### 2.2 发起支付
 
 `java` 发起方式
