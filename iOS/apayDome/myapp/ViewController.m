@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
-NSString *merchantId = @"27dc6eaf-5bf5-4eb9-80f1-a564e20e9d10";
+NSString *merchantId = @"5e63d2fc-3e1c-43fa-a6b3-2e36f5572c96";
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -65,12 +65,69 @@ NSString *merchantId = @"27dc6eaf-5bf5-4eb9-80f1-a564e20e9d10";
     }else if (payType == 2) {
         payreq.payType = ThirdPayTypeOtcPay;
     }
-    payreq.signSecret = @"6FE144D58964EB0D535B521A651AE19E";
-    [ApayApi registerApayApp:@"123"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+      if (!BF_IS_STR_NIL(payreq.coinName)) {
+          dict[@"coinName"] = payreq.coinName;
+      }
+      if (!BF_IS_STR_NIL(payreq.merchantOrderCode)) {
+          dict[@"merchantOrderCode"] = payreq.merchantOrderCode;
+      }
+      if (!BF_IS_STR_NIL(payreq.orderAmount)) {
+          dict[@"orderAmount"] = payreq.orderAmount;
+      }
+      if (!BF_IS_STR_NIL(payreq.businessId)) {
+          dict[@"merchantId"] = payreq.businessId;
+      }
+    NSString *sortString = [self sortString:dict.copy];
+      NSString *sign = [self hmacSHA256WithSecret:@"56B3F3EF4A54C0A5D1C14212AD35B703" content:sortString];
+    payreq.signSecretResult = sign;
+    [ApayApi registerApayApp:merchantId];
     [ApayApi sendApayReq:payreq];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+- (NSString *)sortString:(NSDictionary *)dict {
+    
+    if(!dict){
+        return @"";
+    }
+    
+    NSArray* arr = [dict allKeys];
+    arr = [arr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    NSMutableString *string = [NSMutableString string];
+    for (id keyObj in arr) {
+        /////   如果参数中包含@[]则不参与签名
+        if ([dict[keyObj] isKindOfClass:NSArray.class] || [dict[keyObj] isKindOfClass:NSMutableArray.class]) {
+            continue;
+        }
+        [string appendFormat:@"%@=%@",keyObj,dict[keyObj]];
+        [string appendString:@","];
+    }
+    NSString *subString = [string substringToIndex:string.length - 1];
+    return subString;
+}
+
+/**
+ *  加密方式,MAC算法: HmacSHA256
+ *
+ *  @param secret       秘钥
+ *  @param content 要加密的文本
+ *
+ *  @return 加密后的字符串
+ */
+- (NSString *)hmacSHA256WithSecret:(NSString *)secret content:(NSString *)content
+{
+    const char *cKey  = [secret cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cData = [content cStringUsingEncoding:NSUTF8StringEncoding];// 有可能有中文 所以用NSUTF8StringEncoding -> NSASCIIStringEncoding
+    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    NSData *HMACData = [NSData dataWithBytes:cHMAC length:sizeof(cHMAC)];
+    return [HMACData base64EncodedStringWithOptions:0];
+}
+
 @end

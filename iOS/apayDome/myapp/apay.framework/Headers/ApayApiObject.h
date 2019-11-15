@@ -66,7 +66,7 @@ extern NSString * const ThirdPayTypeOtcPay;
 @property (nonatomic, copy) NSString *businessId;
 /** 支付类型 */ 
 @property (nonatomic, copy) NSString *payType;
-/** 签名密钥, */
-@property (nonatomic,copy) NSString *signSecret;
+/** 签名结果,密钥加密后再赋值 */
+@property (nonatomic,copy) NSString *signSecretResult;
 @end
 
