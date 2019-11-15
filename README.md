@@ -7,9 +7,9 @@
 
 Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多数的 Apay API 需采用 POST 方式发送请求，少量的服务类 API 使用 GET 方式获取数据。除 API 列举的请求方式外，其他方法都不被支持。
 
-### 2.1.pay发起支付 ###
+### 2.1.pay发起支付 ### 请求方式：POST
 
-#### 请求参数 ####
+#### 请求参数(Content-Type : application/json) ####
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantId | String | 商户APPID |
@@ -18,7 +18,7 @@ Apay API 基于 RESTful API 风格，它具备完整的 HTTP 请求规范，多�
 | orderAmount | Decimal | 数量 |
 | merchantSign | String | 商家签名 |
 
-#### 返回值 ####
+#### 返回值(Content-Type : application/json) ####
 
 | 参数 | 类型 | 描述 |
 | - | - | - |
@@ -46,9 +46,9 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 
 例如：body参数为 address = 0x123456789，orderId = ap201906250958001，那么根据key升序排列所得到的字符串为："address=0x1236547,orderId=ap201906250958001",对此字符串进行HMAC SHA256，然后Base64即可得到签名
 
-### 2.2.查询商家订单状态 /v1.0/queryMerchantOrderStatus ###
+### 2.2.查询商家订单状态 /pay/v1.0/queryMerchantOrderStatus ### 请求方式：POST
 
-#### 请求参数 ####
+#### 请求参数(Content-Type : application/json)  ####
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantId | String | 商户APPID |
@@ -56,15 +56,15 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 | orderCode | String | 订单号(此订单号为Apay返回的订单号) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
 
-#### 返回值 ####
+#### 返回值(Content-Type : application/json) ####
 
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | orderStatus | Integer | 订单状态(1为已创建，2为确认中，3为已完成，4为失败) |
 
-### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收Apay支付成功后的回调，Apay向接收方发送参数如下:
+### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收Apay支付成功后的回调，Apay向接收方发送 ***POST*** 请求，请求参数如下:
 
-#### 请求参数 ####
+#### 请求参数(Content-Type : application/json)  ####
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantOrderCode| String | 商家订单号 |
@@ -96,3 +96,6 @@ pay,coinpay,otcpay分别对应支付，币支付和OTC支付。例:
 	}
 	apayBridge.call("pay.payAsyn",params);
 ```
+
+## 4.H5二维码 扫码支付 ##
+待完善...
