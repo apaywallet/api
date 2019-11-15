@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
-NSString *merchantId = @"5e63d2fc-3e1c-43fa-a6b3-2e36f5572c96";
+NSString *merchantId = @"26342f91-ce27-42c2-aac9-8177403dba92";
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -79,7 +79,7 @@ NSString *merchantId = @"5e63d2fc-3e1c-43fa-a6b3-2e36f5572c96";
           dict[@"merchantId"] = payreq.businessId;
       }
     NSString *sortString = [self sortString:dict.copy];
-      NSString *sign = [self hmacSHA256WithSecret:@"56B3F3EF4A54C0A5D1C14212AD35B703" content:sortString];
+      NSString *sign = [self hmacSHA256WithSecret:@"2433822CC6B6BAF52CEBAD5E20B15088" content:sortString];
     payreq.signSecretResult = sign;
     [ApayApi registerApayApp:merchantId];
     [ApayApi sendApayReq:payreq];
