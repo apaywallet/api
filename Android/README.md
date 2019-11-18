@@ -28,18 +28,6 @@ repositories {
 
 ### 2.2 发起支付
 
-{% tabs 选项卡 %}
-<!-- tab -->
-1
-<!-- endtab -->
-<!-- tab -->
-2
-<!-- endtab -->
-<!-- tab -->
-3
-<!-- endtab -->
-{% endtabs %}
-
 `java` 发起方式
 
 ```java
