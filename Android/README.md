@@ -2,17 +2,17 @@
 
 ## 1 介绍
 
-本 `jar` 包用于商家在 `App` 应用中集成 `APAY` 支付功能。暂时只支持 `AndroidX` 版本。
+本 `jar` 包用于商家在 `App` 应用中集成 `APAY` 支付功能。
 
-## 2 如何使用
+## 2 Androidx 集成使用方式
 
 ### 2.1 将 `jar` 包添加到项目 `app->libs` 目录下
 
 ```groovy
-implementation files('libs/apayutils.jar')
+implementation files('libs/apayutils_androidx.jar')
 ```
 
-因为本 `jar` 暂时使用 `kotlin` 编写，需要添加 `core-ktx` 依赖
+因为本 `jar` 使用 `kotlin` 编写，需要添加 `core-ktx` 依赖
 
 ```groovy
 implementation "androidx.core:core-ktx:1.1.0"
@@ -31,13 +31,13 @@ repositories {
 `java` 发起方式
 
 ```java
-APayUtils.Companion.getInstance().goAPayment(this,"type","coinName","orderAmount","appid","merchantOrderCode","appSecret");
+APayUtils.Companion.getInstance().goAPayment(this,"type","coinName","orderAmount","appid","merchantOrderCode","sign");
 ```
 
 `kotlin` 发起方式
 
 ```kotlin
-APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","appid","merchantOrderCode","appSecret")
+APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","appid","merchantOrderCode","sign")
 ```
 
 请求参数
@@ -48,13 +48,29 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","a
 | type              | String   | pay(支付方式选择)、coinpay(币支付)、otcpay(OTC支付) 三种支付方式 |
 | coinName          | String   | 币种名称。例如：”BTC”                                        |
 | orderAmount       | String   | 购买数量                                                     |
-| appId             | String   | 商户 appId (文档之前使用 merchantId )                        |
+| appId             | String   | 商户 appId                                                   |
 | merchantOrderCode | String   | 商家订单号                                                   |
-| appSecret         | String   | 商户 appSecret (文档之前使用 singnature )                    |
+| sign              | String   | 签名                                                         |
 
-`appId` `appSecret` 申请地址请前往 [商户后台](https://api.apay.im/) 申请
+`appId`申请地址请前往 [商户后台](https://api.apay.im/) 申请
 
-### 2.3 支付回调
+## 3 Support 集成使用方式
+
+### 3.1 将 `jar` 包添加到项目 `app->libs` 目录下
+
+```groovy
+implementation files('libs/apayutils_support.jar')
+```
+
+### 3.2 发起支付
+
+```java
+APayUtils.getInstance().goAPayment(this,"type","coinName","orderAmount","appid","merchantOrderCode","sign");
+```
+
+请求参数同上
+
+## 4 支付回调
 
 ***注意***：最终订单状态以调用接口为准，前端回调只做参考。
 
