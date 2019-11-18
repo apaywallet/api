@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B786B7B2375518100392124 /* apay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B786B7A2375518100392124 /* apay.framework */; };
+		6BAE9389237EB75300E43ECF /* apay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAE9388237EB75300E43ECF /* apay.framework */; };
 		6BBB5F2721425BED0023023A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2621425BED0023023A /* AppDelegate.m */; };
 		6BBB5F2A21425BED0023023A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2921425BED0023023A /* ViewController.m */; };
 		6BBB5F2D21425BED0023023A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2B21425BED0023023A /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6BF0544B236AD14600A9E690 /* Embed Frameworks */ = {
+		263B853E2359780B002D43F8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -31,8 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6B786B7A2375518100392124 /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = apay.framework; sourceTree = "<group>"; };
-		6BBB5F2221425BED0023023A /* 调用DEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "调用DEMO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BAE9388237EB75300E43ECF /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = apay.framework; sourceTree = "<group>"; };
+		6BBB5F2221425BED0023023A /* 调用DEMO02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "调用DEMO02.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BBB5F2521425BED0023023A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6BBB5F2621425BED0023023A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6BBB5F2821425BED0023023A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -44,7 +44,6 @@
 		6BBB5F3421425BEE0023023A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6BF05402236927A300A9E690 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		6BF05403236927A300A9E690 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
-		6BF05441236AD05D00A9E690 /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = apay.framework; path = ../apay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B786B7B2375518100392124 /* apay.framework in Frameworks */,
+				6BAE9389237EB75300E43ECF /* apay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +61,6 @@
 		6B85C6122359BE8200882755 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6BF05441236AD05D00A9E690 /* apay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -79,7 +77,7 @@
 		6BBB5F2321425BED0023023A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BBB5F2221425BED0023023A /* 调用DEMO.app */,
+				6BBB5F2221425BED0023023A /* 调用DEMO02.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +85,7 @@
 		6BBB5F2421425BED0023023A /* myapp */ = {
 			isa = PBXGroup;
 			children = (
-				6B786B7A2375518100392124 /* apay.framework */,
+				6BAE9388237EB75300E43ECF /* apay.framework */,
 				6BF05402236927A300A9E690 /* UIWindow+Extension.h */,
 				6BF05403236927A300A9E690 /* UIWindow+Extension.m */,
 				6BBB5F2521425BED0023023A /* AppDelegate.h */,
@@ -113,7 +111,7 @@
 				6BBB5F1E21425BED0023023A /* Sources */,
 				6BBB5F1F21425BED0023023A /* Frameworks */,
 				6BBB5F2021425BED0023023A /* Resources */,
-				6BF0544B236AD14600A9E690 /* Embed Frameworks */,
+				263B853E2359780B002D43F8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,7 +119,7 @@
 			);
 			name = myapp;
 			productName = myapp;
-			productReference = 6BBB5F2221425BED0023023A /* 调用DEMO.app */;
+			productReference = 6BBB5F2221425BED0023023A /* 调用DEMO02.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -332,8 +330,8 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = qqqtest1;
-				PRODUCT_NAME = "调用DEMO";
+				PRODUCT_BUNDLE_IDENTIFIER = qqqtest2;
+				PRODUCT_NAME = "调用DEMO02";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -357,8 +355,8 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = qqqtest1;
-				PRODUCT_NAME = "调用DEMO";
+				PRODUCT_BUNDLE_IDENTIFIER = qqqtest2;
+				PRODUCT_NAME = "调用DEMO02";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
