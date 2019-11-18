@@ -2,11 +2,11 @@
 
 ## 1 介绍
 
-本 `jar` 包用于商家在 `App` 应用中集成 `APAY` 支付功能。
+本 `jar` 包用于商家在 `App` 应用中集成 `APAY` 支付功能。支持 `Androidx` 和 `Support` 版本。
 
 ## 2 Androidx 集成使用方式
 
-### 2.1 将 `jar` 包添加到项目 `app->libs` 目录下
+### 2.1 将 `apayutils_androidx.jar` 添加到项目 `app->libs` 目录下，如果有调整 `jar` 包目录请放置到调整后的目录内。
 
 ```groovy
 implementation files('libs/apayutils_androidx.jar')
@@ -56,7 +56,7 @@ APayUtils.instance.goAPayment(this@KotlinDemo,"type","coinName","orderAmount","a
 
 ## 3 Support 集成使用方式
 
-### 3.1 将 `jar` 包添加到项目 `app->libs` 目录下
+### 3.1 将 `apayutils_support.jar` 添加到项目 `app->libs` 目录下，如果有调整 `jar` 包目录请放置到调整后的目录内。
 
 ```groovy
 implementation files('libs/apayutils_support.jar')
