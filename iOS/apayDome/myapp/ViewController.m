@@ -10,6 +10,7 @@
 #include <CommonCrypto/CommonHMAC.h>
 #import "apay.framework/Headers/ApayApi.h"
 #import "UIWindow+Extension.h"
+#import "WalletPopMenuView.h"
 
 // 判断字符串是否为空
 #define BF_IS_STR_NIL(objStr)                                                 \
@@ -17,6 +18,7 @@
      [objStr length] <= 0)
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIButton *coinNameBtn;
 
 @end
 NSString *merchantId = @"26342f91-ce27-42c2-aac9-8177403dba92";
@@ -26,12 +28,34 @@ NSString *merchantId = @"26342f91-ce27-42c2-aac9-8177403dba92";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    CGFloat labelWidth = self.coinNameBtn.titleLabel.intrinsicContentSize.width; //注意不能直接使用titleLabel.frame.size.width,原因为有时候获取到0值
+    CGFloat imageWidth = self.coinNameBtn.imageView.frame.size.width;
+    CGFloat space = 2.f; //定义两个元素交换后的间距
+    self.coinNameBtn.titleEdgeInsets = UIEdgeInsetsMake(0, - imageWidth - space,0,imageWidth + space);
+    self.coinNameBtn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + space, 0,  -labelWidth - space);
+}
 - (IBAction)gotopay:(id)sender {
     if (BF_IS_STR_NIL(self.textField.text)) {
         [UIWindow showTips:@"请输入数量"];
         return;
     }
    [self pushToPayType:0];
+}
+- (IBAction)changeCoinName:(id)sender {
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+       CGPoint triangPoint = [self.view convertPoint:self.coinNameBtn.center toView:keyWindow];
+    NSArray *dataArray = @[@{@"title":@"USDT",},
+                           @{@"title":@"ETH",},@{@"title":@"BTC",},@{@"title":@"EOS",},@{@"title":@"APT",}];
+    [WalletPopMenuView showWithItems:dataArray
+                                          width:130
+                               triangleLocation:triangPoint
+                                         action:^(NSInteger index) {
+        NSDictionary *dict = dataArray[index];
+        [self.coinNameBtn setTitle:dict[@"title"] forState:UIControlStateNormal];
+                                         }];
 }
 
 - (IBAction)gotocoinpay:(id)sender {
@@ -54,7 +78,7 @@ NSString *merchantId = @"26342f91-ce27-42c2-aac9-8177403dba92";
 - (void)pushToPayType:(NSInteger)payType {
     
     PayReq *payreq = [[PayReq alloc]init];
-    payreq.coinName = @"USDT";
+    payreq.coinName = self.coinNameBtn.titleLabel.text;
     payreq.merchantOrderCode = @"201910171234";
     payreq.orderAmount =self.textField.text;
     payreq.businessId = merchantId;
