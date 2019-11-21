@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B9392992383E48C0085D0F5 /* WalletPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9392982383E48B0085D0F5 /* WalletPopMenuView.m */; };
+		6B93929C2383E93E0085D0F5 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B93929B2383E93E0085D0F5 /* UIView+Category.m */; };
 		6BAE9389237EB75300E43ECF /* apay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAE9388237EB75300E43ECF /* apay.framework */; };
 		6BBB5F2721425BED0023023A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2621425BED0023023A /* AppDelegate.m */; };
 		6BBB5F2A21425BED0023023A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBB5F2921425BED0023023A /* ViewController.m */; };
@@ -31,6 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B9392972383E48B0085D0F5 /* WalletPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletPopMenuView.h; sourceTree = "<group>"; };
+		6B9392982383E48B0085D0F5 /* WalletPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletPopMenuView.m; sourceTree = "<group>"; };
+		6B93929A2383E93E0085D0F5 /* UIView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		6B93929B2383E93E0085D0F5 /* UIView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
 		6BAE9388237EB75300E43ECF /* apay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = apay.framework; sourceTree = "<group>"; };
 		6BBB5F2221425BED0023023A /* 调用DEMO02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "调用DEMO02.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BBB5F2521425BED0023023A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +91,10 @@
 		6BBB5F2421425BED0023023A /* myapp */ = {
 			isa = PBXGroup;
 			children = (
+				6B93929A2383E93E0085D0F5 /* UIView+Category.h */,
+				6B93929B2383E93E0085D0F5 /* UIView+Category.m */,
+				6B9392972383E48B0085D0F5 /* WalletPopMenuView.h */,
+				6B9392982383E48B0085D0F5 /* WalletPopMenuView.m */,
 				6BAE9388237EB75300E43ECF /* apay.framework */,
 				6BF05402236927A300A9E690 /* UIWindow+Extension.h */,
 				6BF05403236927A300A9E690 /* UIWindow+Extension.m */,
@@ -174,7 +184,9 @@
 			files = (
 				6BBB5F2A21425BED0023023A /* ViewController.m in Sources */,
 				6BF05404236927A300A9E690 /* UIWindow+Extension.m in Sources */,
+				6B9392992383E48C0085D0F5 /* WalletPopMenuView.m in Sources */,
 				6BBB5F3521425BEE0023023A /* main.m in Sources */,
+				6B93929C2383E93E0085D0F5 /* UIView+Category.m in Sources */,
 				6BBB5F2721425BED0023023A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
