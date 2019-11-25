@@ -62,7 +62,7 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 | - | - | - |
 | orderStatus | Integer | 订单状态(1为已创建，2为确认中，3为已完成，4为失败) |
 
-### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收Apay支付成功后的回调，Apay向接收方发送 ***POST*** 请求，请求参数如下:
+### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收Apay支付成功后的回调，Apay向接收方发送 ***POST*** 请求。当支付成功时，实时回调商家来通知商家支付成功，(实时回调未成功，则Apay会再次异步回调3次，3次未成功后，不再回调)请求参数如下:
 
 #### 请求参数(Content-Type : application/json)  ####
 | 参数 | 类型 | 描述 |
