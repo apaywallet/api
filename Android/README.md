@@ -88,11 +88,11 @@ APayUtils.getInstance().goAPayment(this,"type","coinName","orderAmount","appid",
         if (requestCode == APayUtils.PAY_REQUESTCODE) {
             int payStatus = data.getIntExtra("payStatus", 0);
             if (payStatus == APayUtils.PAY_SUCCESS) {
-                ToastUtils.showShort("支付成功");
+                ToastUtils.showShort("订单完成");
             } else if (payStatus == APayUtils.PAY_FAIL) {
-                ToastUtils.showShort("支付还未成功,请前往APAY继续支付");
+                ToastUtils.showShort("订单还未完成");
             } else {
-                ToastUtils.showShort("支付异常");
+                ToastUtils.showShort("订单异常");
             }
         }
     }
@@ -100,8 +100,8 @@ APayUtils.getInstance().goAPayment(this,"type","coinName","orderAmount","appid",
 
 返回值
 
-| 字段名                | 类型 | 描述                                            |
-| --------------------- | ---- | ----------------------------------------------- |
-| payStatus             | Int  | 用于在 onActivityResult 中获取支付状态的 key 值 |
-| APayUtils.PAY_SUCCESS | Int  | 支付成功后返回的状态                            |
-| APayUtils.PAY_FAIL    | Int  | 支付失败或取消后返回的状态                      |
+| 字段名                | 类型 | 描述                                                         |
+| --------------------- | ---- | ------------------------------------------------------------ |
+| payStatus             | Int  | 用于在 onActivityResult 中获取支付状态的 key 值              |
+| APayUtils.PAY_SUCCESS | Int  | 订单完成后返回的状态                                         |
+| APayUtils.PAY_FAIL    | Int  | 订单还未完成(可能出现的状态：退出购买，订单取消，只付款未放币) |
