@@ -45,21 +45,26 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 
 例如：body参数为 address = 0x123456789，orderId = ap201906250958001，那么根据key升序排列所得到的字符串为："address=0x1236547,orderId=ap201906250958001",对此字符串进行HMAC SHA256，然后Base64即可得到签名
 
-### 2.2.查询商家订单状态 /pay/v1.0/queryMerchantOrderStatus ### 请求方式：POST
+### 2.2.查询商家订单状态 /pay/v1.0/queryMerchantOrderStatus 请求方式：POST
 
 #### 请求参数(Content-Type : application/json)  ####
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantId | String | 商户APPID |
 | merchantOrderCode| String | 商家订单号 |
-| orderCode | String | 订单号(此订单号为本平台返回的订单号) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
 
-#### 返回值(Content-Type : application/json) ####
+#### 返回值(Content-Type : application/json) #### 
+
+***注意***：查询订单状态返回后，请对响应参数进行签名校验，校验通过后方可信任
 
 | 参数 | 类型 | 描述 |
 | - | - | - |
-| orderStatus | Integer | 订单状态(1为已创建，2为确认中，3为已完成，4为失败) |
+| orderAmount | BigDecimal | 订单数量(以下面的coinName为单位计) |
+| coinName | String | 订单币种 |
+| billCode | String | 平台订单号 |
+| orderStatus | Integer | 订单状态(1为已创建，2为确认中，3为支付成功，4为失败) |
+| merchantSign | String | 用商家APP-SECRET签名生成的商家签名 |
 
 ### 2.3.实时推送商家回调: 使用方需提供商家回调接口，接收支付成功后的回调，支付平台向接收方发送 ***POST*** 请求。当支付成功时，实时回调商家来通知商家支付成功，(实时回调未成功，则支付平台会再次异步回调3次，3次未成功后，不再回调)请求参数如下:
 
@@ -67,7 +72,7 @@ String sign = Base64.encodeBase64String(new HmacUtils(HmacAlgorithms.HMAC_SHA_25
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantOrderCode| String | 商家订单号 |
-| orderAmount | BigDecimal | 订单金额 |
+| orderAmount | BigDecimal | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
 | billCode | String | 订单号(此订单号为本平台的订单号) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
