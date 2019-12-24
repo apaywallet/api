@@ -1,4 +1,6 @@
 
+## 所有API基础调用URL是: https://pay.6du.io (如API: pay 实际请求URL为https://pay.6du.io/pay)
+
 ## 1. 创建支付订单 /pay/v2.0/createPrePaymentBill 请求方式：POST
 
 #### 请求参数(Content-Type : application/json)
