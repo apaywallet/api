@@ -11,7 +11,7 @@
 | tradeType | Integer | 购买类型(1为按数量购买，2为按金额购买) |
 | quantity | String | 购买数量 |
 | paymentProductCode | String | 支付产品代码 |
-| requestTimestamp | Long | 请求时间戳 |
+| requestTimestamp | Long | 请求时间戳(13位) |
 | merchantId | String | 商家应用id |
 | merchantOrderCode | String | 商家订单号 |
 | merchantSign | String| 商家端签名 | 
