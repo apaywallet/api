@@ -58,7 +58,7 @@ orderId=ap201906250958001",用平台公钥对此字符串进行RSA加密，即�
 | 参数 | 类型 | 描述 |
 | - | - | - |
 | merchantOrderCode| String | 商家订单号 |
-| orderAmount | BigDecimal | 订单数量(以下面的coinName为单位计) |
+| orderAmount | String | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
 | billCode | String | 订单号(此订单号为本平台的订单号) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
