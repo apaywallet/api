@@ -19,10 +19,10 @@
 | merchantSign | String| 商家端签名 | 
 
 ***注意***：商家签名merchantSign生成规则:body中参数(除merchantSign之外)根据key升序排序后，按"key=value"组合，一对"key-value"之间用","分隔,
-组合得到签名前明文串，用申请商家时的商家私钥对此明文串进行RSA加密，即可得到签名
+组合得到签名前明文串，用申请商家时的商家私钥对此明文串进行RSA签名(签名算法为SHA256withRSA)，即可得到签名
 
 例如：body参数为 address = 0x123456789，orderId = ap201906250958001，那么根据key升序排列所得到的字符串为："address=0x1236547,
-orderId=ap201906250958001",用商家私钥对此字符串进行RSA加密，即可得到签名
+orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名算法为SHA256withRSA)，即可得到签名
 
 #### 返回值(Content-Type : application/json)
 
