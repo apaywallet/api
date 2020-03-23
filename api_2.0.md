@@ -35,7 +35,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | coinName | String | 币种名称 |
 | orderAmount | String | 数量 |
 | acceptanceName | String | 承兑商名称 |
-| paymentMethodCode | String | 支付方式代码 |
+| paymentMethodCode | String | 支付方式代码( 0001 支付宝, 0002 微信, 0003 银行卡) |
 
 ***注意*** : 需要验证merchantSign参数，验签通过后方可信任。(验签方法同上)
 
