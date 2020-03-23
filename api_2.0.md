@@ -30,6 +30,14 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | - | - | - |
 | billCode | String | 平台订单号 |
 | merchantSign | String | 商家签名 |
+| unitPrice | String | 单价 |
+| totalPrice | String | 总价 |
+| coinName | String | 币种名称 |
+| orderAmount | String | 数量 |
+| acceptanceName | String | 承兑商名称 |
+| paymentMethodCode | String | 支付方式代码 |
+
+***注意*** : 需要验证merchantSign参数，验签通过后方可信任。(验签方法同上)
 
 ## 2. 查询商家订单状态 /pay/v2.0/queryPayPreOrderStatus 请求方式：POST
       
