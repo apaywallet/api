@@ -9,9 +9,9 @@
 | subject | String | 商品标题 |
 | coinName | String | 币种简称 |
 | currencyName | String | 法币名称(目前只支持"CNY") |
-| orderPrice | String | 购买金额 |
+| orderPrice | String | 购买金额(若为按数量购买，此字段填0) |
 | tradeType | Integer | 购买类型(1为按数量购买，2为按金额购买) |
-| quantity | String | 购买数量 |
+| quantity | String | 购买数量(若为按金额购买，此字段填0) |
 | paymentProductCode | String | 支付产品代码 |
 | requestTimestamp | Long | 请求时间戳(13位) |
 | merchantId | String | 商家应用id |
