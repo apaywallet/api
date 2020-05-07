@@ -1,7 +1,7 @@
 
 ## 所有API基础调用URL是: https://pay.6du.io (如API: pay 实际请求URL为https://pay.6du.io/pay)
 
-## 1. 创建支付订单 /pay/v2.0/createPrePaymentBill 请求方式：POST
+## 1. 创建支付订单 /pay/v3.0/createPrePaymentBill 请求方式：POST
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
@@ -36,6 +36,9 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | orderAmount | String | 数量 |
 | acceptanceName | String | 承兑商名称 |
 | paymentMethodCode | String | 支付方式代码( 0001 支付宝, 0002 微信, 0003 银行卡) |
+| acceptPageUrl | String | 承接页url |
+| showFeeAmount | String | 显示的手续费数量 |
+| afterDiscountFeeAmount | String | 打折后的手续费数量 |
 
 ***注意*** : 需要验证merchantSign参数，验签通过后方可信任。(验签方法同上)
 
