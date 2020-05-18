@@ -1,6 +1,18 @@
 
 ## 所有API基础调用URL是: https://pay.6du.io (如API: pay 实际请求URL为https://pay.6du.io/pay)
 
+##### response body 参数说明如下:
+|参数名称|注释|数据类型|
+|:---:|:---:|:---:|
+|code|返回码|Integer|
+|message|返回信息|String|
+|data|业务数据|Object|
+---
+返回示例如下: ***注意:*** 若无任何需要返回的数据时，data为空对象({"code":200, "message":"请求成功 ","data":{})  
+```
+{"code":200, "message":"请求成功 ","data":{...}}
+```
+
 ## 1. 创建支付订单 /pay/v3.0/createPrePaymentBill 请求方式：POST
 
 #### 请求参数(Content-Type : application/json)
@@ -78,3 +90,15 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 ``` 
 	{"code":200}
 ```
+
+### 4. 商户端主动取消订单: /pay/v3.0/merchantCancelTakeOrder  请求方式: POST
+
+#### 请求参数(Content-Type : application/json) 
+| 参数 | 类型 | 描述 |
+| - | - | - |
+| merchantId | String | 商户APP_ID |
+| merchantOrderCode| String | 商户订单号 |
+| merchantSign | String | 商户签名(签名生成规则同上) |
+      
+#### 返回值(Content-Type : application/json) #### 
+无  
