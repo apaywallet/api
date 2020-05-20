@@ -17,7 +17,7 @@
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | subject | String | 商品标题 |
 | coinName | String | 币种简称 |
 | currencyName | String | 法币名称(目前只支持"CNY") |
@@ -39,7 +39,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 #### 返回值(Content-Type : application/json)
 
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | billCode | String | 平台订单号 |
 | merchantSign | String | 商家签名 |
 | unitPrice | String | 单价 |
@@ -58,7 +58,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
       
 #### 请求参数(Content-Type : application/json) 
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | merchantId | String | 商户APPID |
 | merchantOrderCode| String | 商家订单号 |
 | merchantSign | String | 商家签名(签名生成规则同上) |
@@ -68,7 +68,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 ***注意***：查询订单状态返回后，请对响应参数进行签名校验，校验通过后方可信任
       
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | orderAmount | String | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 订单币种 |
 | billCode | String | 平台订单号 |
@@ -79,7 +79,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 
 #### 请求参数(Content-Type : application/json)  ####
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | merchantOrderCode| String | 商家订单号 |
 | orderAmount | String | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
@@ -88,17 +88,74 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 
 #### 返回值说明:成功接收到支付平台推送后，需给支付平台以Json方式返回如下参数,支付平台将code为200视为推送成功。
 ``` 
-	{"code":200}
+{"code":200}
 ```
 
 ### 4. 商户端主动取消订单: /pay/v3.0/merchantCancelTakeOrder  请求方式: POST
 
 #### 请求参数(Content-Type : application/json) 
 | 参数 | 类型 | 描述 |
-| - | - | - |
+| :---: | :---: | :---: |
 | merchantId | String | 商户APP_ID |
 | merchantOrderCode| String | 商户订单号 |
 | merchantSign | String | 商户签名(签名生成规则同上) |
       
 #### 返回值(Content-Type : application/json) #### 
 无  
+
+ ***
+ 
+### 5.查询匹配总价(用户卖币，输入数量后，得到预计总价): /pay/v3.0/queryMatchingTotalPrice 请求方式:POST
+
+#### 请求参数(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantId | String | 商户app_id |
+| coinName | String | 币种简称 |
+| currencyName | String | 法币名称(目前只支持"CNY") |
+| matchAmount | String | 待匹配数量 |
+| paymentProductCode | String | 支付产品代码 |
+| requestTimestamp | Long | 请求时间戳 |
+| merchantSign | String | 商户签名 |
+
+ #### 返回值(Content-Type : application/json)
+ 
+ | 参数 | 类型 | 描述 |
+ | :---: | :---: | :---: |
+ | unitPrice | String | 单价 |
+ | totalPrice | String | 总价 |
+ | methodCode | String | 支付方式代码(支付宝0001，银行卡0003) |
+
+### 6.发起卖币: /pay/v3.0/initialToSellCoin 请求方式:POST  
+
+#### 请求参数(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantId | String | 商户app_id |
+| merchantOrderCode | String | 商户订单号 |
+| coinName | String | 币种简称 |
+| currencyName | String | 法币名称(目前只支持"CNY") |
+| sellAmount | String | 交易数量 |
+| paymentProductCode | String | 支付产品代码 |
+| requestTimestamp | Long | 请求时间戳 |
+| mobile | String | 手机号 |
+| reallyName | String | 真实姓名 |
+| account | String | 账号 |
+| bankBranch | String | 银行加分行名称(若为支付宝方式此字段传"0001")，例如填 招商银行宣武门支行 |
+| merchantSign | String | 商户签名 |
+
+#### 返回值(Content-Type : application/json)
+无
+ 
+#### 7.商户端用户确认收款并放币: /pay/v3.0/confirmedReceiptAndCoinRelease 请求方式:POST
+
+#### 请求参数(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantId | String | 商户app_id |
+| merchantOrderCode | String | 商户订单号 |
+| requestTimestamp | Long | 请求时间戳 |
+| merchantSign | String | 商户签名 |
+
+#### 返回值(Content-Type : application/json)
+无
