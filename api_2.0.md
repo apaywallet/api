@@ -1,10 +1,10 @@
 
-## 所有API基础调用URL是: https://pay.6du.io (如API: pay 实际请求URL为https://pay.6du.io/pay)
+## 所有API基础调用URL是: https://pay.6du.io (如API: /pay 实际请求URL为https://pay.6du.io/pay)
 
-##### response body 参数说明如下:
+##### Response Body 参数说明如下:
 |参数名称|注释|数据类型|
 |:---:|:---:|:---:|
-|code|返回码|Integer|
+|code|返回码(200为成功)|Integer|
 |message|返回信息|String|
 |data|业务数据|Object|
 ---
