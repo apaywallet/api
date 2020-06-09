@@ -159,3 +159,25 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 
 #### 返回值(Content-Type : application/json)
 无
+
+#### 8. 卖币订单状态推送: 使用方需提供接收推送接口，接收卖币订单状态更新的回调，支付平台 向 商户 发送 ***POST*** 请求。
+
+当卖币订单状态更新时(订单交易成功，或交易失败)，通知商户卖币订单最新状态  
+
+同步回调未成功，则支付平台会再次异步回调3次(5分钟1次)，3次未成功后，不再回调。请求参数如下:  
+
+#### 请求参数(Content-Type : application/json)  ####
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantOrderCode| String | 商户订单号 |
+| billCode | String | 订单号(此订单号为本平台的订单号) |
+| sellAmount | String | 卖币数量(以下面的coinName为单位计) |
+| coinName | String | 币种名称 |
+| unitPrice | String | 单价(以CNY计) |
+| orderCurrentStatus | String | 订单当前状态(1为成功，2为失败) |
+| merchantSign | String | 商家签名(签名生成规则同上) |
+
+#### 返回值说明:成功接收到支付平台卖币订单状态推送后，需给支付平台以Json方式返回如下参数,支付平台将code为200视为推送成功。
+``` 
+{"code":200}
+```
