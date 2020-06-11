@@ -145,7 +145,12 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | merchantSign | String | 商户签名 |
 
 #### 返回值(Content-Type : application/json)
-无
+
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| unitPrice | String | 单价(以CNY计) |
+| orderPrice | String | 订单金额(以CNY计) |
+| merchantSign | String | 商户签名 |
  
 #### 7.商户端用户确认收款并放币: /pay/v3.0/confirmedReceiptAndCoinRelease 请求方式:POST
 
