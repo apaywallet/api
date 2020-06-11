@@ -174,6 +174,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | sellAmount | String | 卖币数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
 | unitPrice | String | 单价(以CNY计) |
+| orderPrice | String | 订单金额(以CNY计) |
 | orderCurrentStatus | String | 订单当前状态(1为成功，2为失败) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
 
