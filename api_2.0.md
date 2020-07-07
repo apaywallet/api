@@ -125,6 +125,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
  | unitPrice | String | 单价 |
  | totalPrice | String | 总价 |
  | methodCode | String | 支付方式代码(支付宝0001，银行卡0003) |
+ | merchantSign | String | 商户签名 |
 
 ### 6.发起卖币: /pay/v3.0/initialToSellCoin 请求方式:POST  
 
