@@ -105,7 +105,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 
  ***
  
-### 5.查询匹配总价(用户卖币，输入数量后，得到预计总价): /pay/v3.0/queryMatchingTotalPrice 请求方式:POST
+### 5.查询匹配总价(用户卖币，输入数量后，得到预计总价): /pay/v3.1/queryMatchingTotalPrice 请求方式:POST
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
@@ -113,7 +113,9 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | merchantId | String | 商户app_id |
 | coinName | String | 币种简称 |
 | currencyName | String | 法币名称(目前只支持"CNY") |
-| matchAmount | String | 待匹配数量 |
+| matchAmount | String | 待匹配数量(若为按金额匹配，此字段传0) |
+| matchPrice | String | 待匹配金额(若为按数量匹配，此字段传0) |
+| tradeType | Integer | 交易类型(1为按数量，2为按金额) |
 | paymentProductCode | String | 支付产品代码 |
 | requestTimestamp | Long | 请求时间戳 |
 | merchantSign | String | 商户签名 |
@@ -124,10 +126,11 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
  | :---: | :---: | :---: |
  | unitPrice | String | 单价 |
  | totalPrice | String | 总价 |
+ | matchAmount | String | 匹配数量 |
  | methodCode | String | 支付方式代码(支付宝0001，银行卡0003) |
  | merchantSign | String | 商户签名 |
 
-### 6.发起卖币: /pay/v3.0/initialToSellCoin 请求方式:POST  
+### 6.发起卖币: /pay/v3.1/initialToSellCoin 请求方式:POST  
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
@@ -136,7 +139,9 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | merchantOrderCode | String | 商户订单号 |
 | coinName | String | 币种简称 |
 | currencyName | String | 法币名称(目前只支持"CNY") |
-| sellAmount | String | 交易数量 |
+| sellAmount | String | 交易数量(若为按总价匹配，此字段传0) |
+| sellTotalPrice | String | 交易总价(若为按数量匹配，此字段传0) |
+| tradeType | Integer | 交易类型(1为按数量，2为按金额) |
 | paymentProductCode | String | 支付产品代码 |
 | requestTimestamp | Long | 请求时间戳 |
 | mobile | String | 手机号 |
@@ -150,6 +155,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | 参数 | 类型 | 描述 |
 | :---: | :---: | :---: |
 | unitPrice | String | 单价(以CNY计) |
+| sellAmount | String | 卖币数量 |
 | orderPrice | String | 订单金额(以CNY计) |
 | merchantSign | String | 商户签名 |
  
