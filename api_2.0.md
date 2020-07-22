@@ -84,6 +84,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | orderAmount | String | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
 | billCode | String | 订单号(此订单号为本平台的订单号) |
+| billType | Integer | 订单类型(1为正常单，2为补单) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
 
 #### 返回值说明:成功接收到支付平台推送后，需给支付平台以Json方式返回如下参数,支付平台将code为200视为推送成功。
