@@ -84,18 +84,14 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | orderAmount | String | 订单数量(以下面的coinName为单位计) |
 | coinName | String | 币种名称 |
 | billCode | String | 订单号(此订单号为本平台的订单号) |
-| replenishmentBillCode | String | 补单订单号 |
-| billType | Integer | 订单类型(1为正常单，2为补单) |
 | merchantSign | String | 商家签名(签名生成规则同上) |
-
-***补充说明***:  
-* 当billType为1时，表示本次推送订单为正常订单，此时billCode和replenishmentBillCode相同。
-* 当billType为2时，表示本次推送订单为 订单超时被取消后客服手动补单，此时billCode为交易原单号，replenishmentBillCode为本次补单后平台订单号
-
 
 #### 返回值说明:成功接收到支付平台推送后，需给支付平台以Json方式返回如下参数,支付平台将code为200视为推送成功。
 ``` 
-{"code":200}
+{
+    "code": 200,
+    "merchantId": ""
+}
 ```
 
 ### 4. 商户端主动取消订单: /pay/v3.0/merchantCancelTakeOrder  请求方式: POST
