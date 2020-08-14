@@ -197,3 +197,22 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 ``` 
 {"code":200}
 ```
+
+#### 9.查询平台最新 USDT 买一价及卖一价: /pay/v3.1/queryBuyAndSellCurrencyRate 请求方式:POST
+
+**注意:** 
+* 买一价，指的是从本平台购买 1 USDT 的价格；
+* 卖一价，指的是出售给本平台 1 USDT 的价格；
+
+#### 请求参数(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantId | String | 商户app_id |
+| merchantSign | String | 商户签名 |
+
+#### 返回值(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| buyCurrencyRate | String | 从本平台买 1 USDT 的价格 |
+| sellCurrencyRate | String | 向本平台出售 1 USDT 的价格 |
+| merchantSign | String | 商户签名 |
