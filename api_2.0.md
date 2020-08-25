@@ -216,3 +216,25 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | buyCurrencyRate | String | 从本平台买 1 USDT 的价格 |
 | sellCurrencyRate | String | 向本平台出售 1 USDT 的价格 |
 | merchantSign | String | 商户签名 |
+
+#### 10.查询卖币订单状态: /pay/v3.0/querySellOrderStatus 请求方式:POST
+
+#### 请求参数(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantId | String | 商户app_id |
+| merchantSellOrderCode | String | 商户卖币订单号 |
+| merchantSign | String | 商户签名 |
+
+
+#### 返回值(Content-Type : application/json)
+| 参数 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| merchantOrderCode | String |商户订单号 |
+| billCode | String | 本平台订单号 |
+| sellAmount | String | 卖币数量 |
+| coinName | String | 币种名称 |
+| unitPrice | String | 单价 |
+| orderPrice | String | 订单金额 |
+| orderCurrentStatus | Integer | 订单当前状态(0为确认中，1为成功，2为失败) |
+| merchantSign | String | 商户签名 |
