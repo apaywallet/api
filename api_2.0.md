@@ -13,7 +13,7 @@
 {"code":200, "message":"请求成功 ","data":{...}}
 ```
 
-## 1. 创建支付订单 /pay/v3.0/createPrePaymentBill 请求方式：POST
+## 1. 创建支付订单 /pay/v4.0/createPrePaymentBill 请求方式：POST
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
@@ -25,6 +25,12 @@
 | tradeType | Integer | 购买类型(1为按数量购买，2为按金额购买) |
 | quantity | String | 购买数量(若为按金额购买，此字段填0) |
 | paymentProductCode | String | 支付产品代码 |
+| identityNumber | String | 身份证号 |
+| realName | String | 真实姓名 |
+| mobile | String | 手机号 |
+| identityCardPositive | String | 身份证正面照片url |
+| identityCardHold | String | 手持身份证照片url |
+| identityCardBack | String | 身份证反面照片url |
 | requestTimestamp | Long | 请求时间戳(13位) |
 | merchantId | String | 商家应用id |
 | merchantOrderCode | String | 商家订单号 |
