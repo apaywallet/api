@@ -168,20 +168,8 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | orderPrice | String | 订单金额(以CNY计) |
 | merchantSign | String | 商户签名 |
  
-#### 7.商户端用户确认收款并放币: /pay/v3.0/confirmedReceiptAndCoinRelease 请求方式:POST
 
-#### 请求参数(Content-Type : application/json)
-| 参数 | 类型 | 描述 |
-| :---: | :---: | :---: |
-| merchantId | String | 商户app_id |
-| merchantOrderCode | String | 商户订单号 |
-| requestTimestamp | Long | 请求时间戳 |
-| merchantSign | String | 商户签名 |
-
-#### 返回值(Content-Type : application/json)
-无
-
-#### 8. 卖币订单状态推送: 使用方需提供接收推送接口，接收卖币订单状态更新的回调，支付平台 向 商户 发送 ***POST*** 请求。
+#### 7. 卖币订单状态推送: 使用方需提供接收推送接口，接收卖币订单状态更新的回调，支付平台 向 商户 发送 ***POST*** 请求。
 
 当卖币订单状态更新时(订单交易成功，或交易失败)，通知商户卖币订单最新状态  
 
@@ -204,7 +192,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 {"code":200}
 ```
 
-#### 9.查询平台最新 USDT 买一价及卖一价: /pay/v3.1/queryBuyAndSellCurrencyRate 请求方式:POST
+#### 8.查询平台最新 USDT 买一价及卖一价: /pay/v3.1/queryBuyAndSellCurrencyRate 请求方式:POST
 
 **注意:** 
 * 买一价，指的是从本平台购买 1 USDT 的价格；
@@ -223,7 +211,7 @@ orderId=ap201906250958001",用商家私钥对此字符串进行RSA签名(签名�
 | sellCurrencyRate | String | 向本平台出售 1 USDT 的价格 |
 | merchantSign | String | 商户签名 |
 
-#### 10.查询卖币订单状态: /pay/v3.0/querySellOrderStatus 请求方式:POST
+#### 9.查询卖币订单状态: /pay/v3.0/querySellOrderStatus 请求方式:POST
 
 #### 请求参数(Content-Type : application/json)
 | 参数 | 类型 | 描述 |
